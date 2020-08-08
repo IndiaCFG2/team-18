@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  </head>
+  <body>
+    <section class="section">
+        <div class="container">
+        <div class="columns is-centered">
+        <form action = "" method="post" >
+            <h3 class="title is-3">321 Education Foundation</h3>
+            <h5 class="title is-5">Login</h5>
+
+            <label for="username">Username</label>
+                <input type="text" name='username'>
+            </label>
+            <br><br>
+
+            <label for="password">Password</label>
+                <input type="password" name='password'>
+            </label>
+            <br><br>
+            {% with message = get_flashed_messages() %}
+            {% if message %}
+                <p style="color: red;">*Invalid credentials</p>
+            {% endif %}
+            {% endwith %}
+            <input class ="button is-primary is-rounded" value="Login" type="submit"></input>
+        </form>
+        </div>
+        </div>
+    </section>
+  </body>
+</html>
