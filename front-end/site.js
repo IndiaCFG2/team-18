@@ -38,7 +38,7 @@ async function getIdByNameOfBoard(name) {
     return data.id;
 }
 
-async function getDocumentsUsingParametes(instId, brdData, grade, subject) {
+async function getDocumentsUsingParametes(instId, brdData, grade, subject, fromDate, toDate) {
 
     // var listOfKeyValuePairs = [];
     var dict = {};
@@ -85,11 +85,21 @@ async function getDocumentsUsingParametes(instId, brdData, grade, subject) {
                 // if it is
                 // Add the count to the string that is 100-1-grade1-...
                 // console.log(doc.data().count);
-                // console.log(dict, splString, doc1.data().count();
-                if (dict[splString] != undefined) {
-                    dict[splString] += doc1.data().count;
-                } else {
-                    dict[splString] = doc1.data().count;
+
+                function toTimestamp(strDate) {
+                    var datum = Date.parse(strDate);
+                    return datum / 1000;
+                }
+
+                fdts = toTimestamp(fromDate);
+                edts = toTimestamp(toDate);
+
+                if (Number(doc1.id) >= fdts && Number(doc1.id) <= edts) {
+                    if (dict[splString] != undefined) {
+                        dict[splString] += Number(doc1.data().count);
+                    } else {
+                        dict[splString] = Number(doc1.data().count);
+                    }
                 }
             };
         };
@@ -111,7 +121,7 @@ async function getWrapper() {
     console.log(brdData);
     var grade = "grade2";
     var subject = "eng";
-    splLinkAndCount = await getDocumentsUsingParametes(instId, brdData, grade, subject);
+    splLinkAndCount = await getDocumentsUsingParametes(instId, brdData, grade, subject, "1999-08-10", "2030-10-30");
     console.log(splLinkAndCount);
     var out = [];
     for (key in splLinkAndCount) {
