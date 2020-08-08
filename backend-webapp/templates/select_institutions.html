@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   </head>
   <body>
-  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="https://321-foundation.org/">
             <img src="https://321-foundation.org/img/logo.svg">
@@ -21,34 +19,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-center" style="color:white;" href="#" >&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-in" style="color:white"></i>&nbsp;Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" style="color:white" href={{ url_for( "signup") }}>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user-circle-o" aria-hidden="true" style="color:white"></i>&nbsp;Sign up</a>
-                </li>
             </ul>
-            <!-- <ul class="navbar-nav ml-auto">
-                <li class=" nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Logout </a>
-                    </div>
-                </li>
-            </ul> -->
         </div>
     </nav>
-
     <div class="jumbotron">
         <div class="container">
             <h1 style="text-align:center">321 EDUCATION FOUNDATION</h1>
-            <p></p>
-            
         </div>
     </div>
-
     <section class="section">
         <div class="container">
         <div class="form-group">
@@ -63,7 +41,6 @@
                 </div>
             <br>
             <div>
-
                 <label for="select">Board</label>
                 
                     <select class="form-control" name="board" required="true">
@@ -73,17 +50,16 @@
                             <option value="MAHARASHTRA">Maharashtra State Board</option>
                             <option value="KARNATAKA">Karnataka State Board</option>
                     </select>
-            
             </div>
             <br><br>
             <input class="btn btn-primary btn-block" value="Generate a Link" type="submit"></input>
             <br><br>
-
-           
-              
         </form>
         </div>
         </div>
     </section>
+	<footer>
+        <p class="text-center" style="background-color:grey;color:white">&copy; 321 EDUCATION FOUNDATION</p>
+    </footer>
   </body>
 </html>
