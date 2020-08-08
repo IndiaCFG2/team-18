@@ -63,18 +63,17 @@ def teacher_select(institute_id = None, board_id = None):
 @app.route("/app/<lessonId>")
 def count_incrementer(lessonId = None):
     midnight = datetime.combine(datetime.today(), time.min)
-    print(int(midnight.timestamp()))
-    todays_timestamp = int(midnight.timestamp()) + 86400
+    todays_timestamp = int(midnight.timestamp()) + 19800
     print(todays_timestamp)
     doc_ref = db.collection('lessons').document(lessonId).collection('dates').document(str(todays_timestamp))
     doc = doc_ref.get()
     current_count = doc.to_dict()['count']
-    doc_ref.set({'count' : current_count + 1})
+    doc_ref.set({'count' : int(current_count + 1)})
     google_slide_link = lessonId.split('_')[1:]
     doc_for_link = "_".join(google_slide_link)
     print(doc_for_link)
     url = db.collection('google_slide_links').document(doc_for_link).get()
-    url = 'https://'+ url.to_dict()['link']
+    url = url.to_dict()['link']
     return redirect(url)
 
 if __name__ == "__main__":
