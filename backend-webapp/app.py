@@ -11,21 +11,27 @@ db = firestore.client()
 
 app = Flask(__name__)
 
-#Organiser's view
-@app.route("/", methods = ["GET", "POST"])
-@app.route("/login", methods = ["GET", "POST"])
-def login():
-    return "Hello"
 
-#Organiser's view
-@app.route("/signup", methods = ["GET", "POST"])
-def signup():
+@app.route("/", methods = ['GET', 'POST'])
+def login():
     pass
+
+
 
 #Organiser's view
 @app.route("/select_institutions", methods = ["GET", "POST"])
 def select_institutions():
-    
+    if request.method == "POST":
+        institute_name = request.form['institute']
+        board_name = request.form['board']
+        doc_institute = db.collection('institutionDetails').document(institute_name).get().to_dict()
+        instituteId = doc_institute['id']
+
+        doc_board = db.collection('boardID').document(board_name).get().to_dict()
+        boardId = doc_board['id']
+        url = 'http://team18-cfg.herokuapp.com/app/' + str(instituteId) + '/' + str(boardId)
+        return render_template("generate_url.html", url = url)
+    return render_template("select_institutions.html")
 
 #Teacher's function
 @app.route("/app/<institute_id>/<board_id>", methods = ["GET", "POST"])
@@ -38,7 +44,7 @@ def teacher_select(institute_id = None, board_id = None):
         subject = request.form['subject']
         tech = request.form['tech']
         lessonId = instituteId + '_' + boardId + '_' + grade + '_' + subject + '_' + lesson + '_' + tech
-        url = 'http://team18-cfg.herokuapp.com/' + lessonId
+        url = 'http://team18-cfg.herokuapp.com/app/' + lessonId
         return render_template("generate_url.html", url = url)
     return render_template("teacher_select.html")
 

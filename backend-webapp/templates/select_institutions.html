@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
   
@@ -53,59 +54,33 @@
         <div class="form-group">
         <form action = "" method="post" >
             <div>
-            <label for="select"><b>Board</b></label>
-                    <select class="form-control" name="board" required="true">
+            <label for="select"><b>Institute</b></label>
+                    <select class="form-control" name="institute" required="true">
                             <option value="">Select</option>
-                            <option value="cbse">CBSE</option>
-                            <option value="ta">Telangana State Board</option>
-                            <option value="mh">Maharashtra State Board</option>
-                            <option value="ka">Karnataka State Board</option>
-                    </select>
-                </div>
-            <br>
-
-            <div >
-            <label for="select"><b>Grade</b></label>
-                    <select class="form-control" name="grade" required>
-                            <option value="">Select</option>
-                            <option value="grade1">Grade 1</option>
-                            <option value="grade2">Grade 2</option>
-                            <option value="grade3">Grade 3</option>
-                            
-                    </select>
-                </div>
-            <br>
-            <div >
-            <label for="select"><b>Subject</b></label>
-                    <select class="form-control" name = 'subject' required>
-                            <option value="">Select</option>
-                            <option value="eng">English</option>
-                            <option value="hindi">Hindi</option>
-                            <option value="maths">Mathematics</option>
+                            <option value="NIE">NIE</option>
+                            <option value="SJCE">SJCE</option>
                     </select>
                 </div>
             <br>
             <div>
-            <label for="select"><b>Lesson</b></label>
-                    <select class="form-control " name = 'lesson' required>
-                        <option value="">Select</option>
-                        <option value="l1">Lesson 1</option>
-                        <option value="l2">Lesson 2</option>
+
+                <label for="select">Board</label>
+                
+                    <select class="form-control" name="board" required="true">
+                            <option value="">Select</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="TELANGANA">Telangana State Board</option>
+                            <option value="MAHARASHTRA">Maharashtra State Board</option>
+                            <option value="KARNATAKA">Karnataka State Board</option>
                     </select>
+            
             </div>
-            </label>
-            <br>
-            <div >
-                <label for="select"><b>High Tech or Low Tech</b></label>
-                        <select class="form-control" name = 'tech' required>
-                                <option value="">Select</option>
-                                <option value="ht">High Tech</option>
-                                <option value="lt">Low Tech</option>
-                        </select>
-            </div>
-            </label>
-            <br>
+            <br><br>
             <input class="btn btn-primary btn-block" value="Generate a Link" type="submit"></input>
+            <br><br>
+
+           
+              
         </form>
         </div>
         </div>
