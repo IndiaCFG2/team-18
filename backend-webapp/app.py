@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, flash
 import firebase_admin
 from firebase_admin import credentials,firestore
 from datetime import datetime, time
@@ -10,12 +10,23 @@ defaultApp = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 app = Flask(__name__)
+app.secret_key = 'thisIsSecretKeyhuehuehue'
 
 
 @app.route("/", methods = ['GET', 'POST'])
 def login():
-    pass
+    if request.method == 'POST':
+        message = ""
+        username = request.form['username']
+        password = request.form['password']
 
+        if username == '' and password == '':
+            return redirect(url_for('select_institutions'))
+        else:
+            flash("College already exists!")
+            return redirect(url_for('login'))
+        return render_template('login.html')
+    return render_template('login.html')
 
 
 #Organiser's view
