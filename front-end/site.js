@@ -12,10 +12,32 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var firestore = firebase.firestore();
 
+function getSchools(){
+    const schoolRef = firestore.collection("institutionDetails");
+    schoolRef.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id}`);
+        });
+    });
+}
+getSchools()
 
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
 
-
-
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date1").setAttribute("max", today);
+mindate = document.getElementById("date1").value
+document.getElementById("date2").setAttribute("max", today);
+document.getElementById("date2").setAttribute("min", mindate);
 
 
 async function getIdByNameOfInstitution(name) {
@@ -140,3 +162,67 @@ async function getWrapper() {
     console.log(out);
 }
 getWrapper();
+
+
+function chooseOptions(){
+
+    var school = $('#school option:selected').text();
+    var board = $('#board option:selected').text();
+    var grade = $('#grade option:selected').text();
+    var subject = $('#subject option:selected').text();
+    var date1 = document.getElementById("date1").value
+    var date2 = document.getElementById("date2").value
+    //var schoolid = $('#school').val();
+    console.log(school,board,grade,subject,date2)
+
+    //fetch data after filtering
+    var graph_data = [
+        {'lesson1' : [10,20]},
+        {'lesson2' : [30,20]},
+        {'lesson2' : [20,40]}
+    ]
+
+    var ls = []
+    var highTech = []
+    var lowTech = []
+
+    graph_data.forEach(function(obj){
+        for (key in obj){
+            ls.push(key)
+            highTech.push(obj[key][0])
+            lowTech.push(obj[key][1])
+        }
+    });
+    
+    console.log(ls,highTech,lowTech)
+    new Chart(document.getElementById("barchart"), {
+        type: 'bar',
+        data: {
+          labels: ls, 
+          datasets: [
+            {
+              label: "HighTech",
+              backgroundColor: "#3e95cd",
+              data: highTech 
+            }, {
+              label: "LowTech",
+              backgroundColor: "#8e5ea2",
+              data: lowTech 
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Student viewership'
+          },
+          scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero : true
+                }
+            }]
+        }
+        }
+    });
+}
