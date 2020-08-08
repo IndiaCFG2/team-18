@@ -6,76 +6,106 @@
     <title>Link Generator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-  </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+</head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://321-foundation.org/">
+            <img src="https://321-foundation.org/img/logo.svg">
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-center" style="color:white;" href="#" >&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-in" style="color:white"></i>&nbsp;Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-center" style="color:white" href={{ url_for( "signup") }}>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user-circle-o" aria-hidden="true" style="color:white"></i>&nbsp;Sign up</a>
+                </li>
+            </ul>
+            <!-- <ul class="navbar-nav ml-auto">
+                <li class=" nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Logout </a>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="text-align:center">321 EDUCATION FOUNDATION</h1>
+            <p></p>
+            
+    </div>
+</div>
     <section class="section">
         <div class="container">
         <div class="columns is-centered">
         <form action = "" method="post" >
-            <h3 class="title is-3">321 Education Foundation</h3>
-            <h5 class="title is-5">Fill the details</h5>
+            <div>
+                <label for="select"><b>Board</b></label>
+                        <select class="form-control" name="board" required="true">
+                                <option value="">Select</option>
+                                <option value="cbse">CBSE</option>
+                                <option value="ta">Telangana State Board</option>
+                                <option value="mh">Maharashtra State Board</option>
+                                <option value="ka">Karnataka State Board</option>
+                        </select>
+            </div>
+            <br>
+            <div>
 
-            <label for="select">Board</label>
-                <div class="select is-rounded">
-                    <select name="board" required="true">
-                            <option value="">Select</option>
-                            <option value="cbse">CBSE</option>
-                            <option value="ta">Telangana State Board</option>
-                            <option value="mh">Maharashtra State Board</option>
-                            <option value="ka">Karnataka State Board</option>
-                    </select>
-                </div>
-            </label>
-            <br><br><br>
+                <label for="select"><b>Grade</b></label>
 
-            <label for="select">Grade</label>
-                <div class="select is-rounded">
-                    
-                    <select name="grade" required>
-                            <option value="">Select</option>
-                            <option value="grade1">Grade 1</option>
-                            <option value="grade2">Grade 2</option>
-                            <option value="grade3">Grade 3</option>
-                            
-                    </select>
-                </div>
-            </label>
-            <br><br><br>
-            <label for="select">Subject</label>
-                <div class="select is-rounded">
-                    
-                    <select name = 'subject' required>
+                        <select class="form-control" name="grade" required>
+                                <option value="">Select</option>
+                                <option value="grade1">Grade 1</option>
+                                <option value="grade2">Grade 2</option>
+                                <option value="grade3">Grade 3</option>
+                                
+                        </select>
+            </div>
+            <br>
+            <div>
+                <label for="select"><b>Subject</b></label>
+                    <select class="form-control" name = 'subject' required>
                             <option value="">Select</option>
                             <option value="eng">English</option>
                             <option value="hindi">Hindi</option>
                             <option value="maths">Mathematics</option>
                     </select>
-                </div>
-            </label>
-            <br><br><br>
-            <label for="select">Lesson</label>
-                <div class="select is-rounded">
-                    <select name = 'lesson' required>
-                        <option value="">Select</option>
-                        <option value="l1">Lesson 1</option>
-                        <option value="l2">Lesson 2</option>
-                    </select>
-                </div>
-            </label>
-            <br><br><br>
-            <label for="select">High Tech or Low Tech</label>
-                <div class="select is-rounded">
-                    
-                    <select name = 'tech' required>
-                            <option value="">Select</option>
-                            <option value="ht">High Tech</option>
-                            <option value="lt">Low Tech</option>
-                    </select>
-                </div>
-            </label>
+                
+            </div>
+            <br>
+            <div>
 
-            <br><br><br>
-            <input value="Click here to generate a link" type="submit"></input>
+                <label for="select"><b>Lesson</b></label>
+                   
+                        <select class="form-control" name = 'lesson' required>
+                            <option value="">Select</option>
+                            <option value="l1">Lesson 1</option>
+                            <option value="l2">Lesson 2</option>
+                        </select>
+
+            </div>
+            <br>
+            <div>
+                <label for="select"><b>High Tech or Low Tech</b></label>
+                        <select class="form-control" name = 'tech' required>
+                                <option value="">Select</option>
+                                <option value="ht">High Tech</option>
+                                <option value="lt">Low Tech</option>
+                        </select>
+            </div>
+            <br>
+            <input class="btn btn-primary btn-block" value="Click here to generate a link" type="submit"></input>
         </form>
         </div>
         </div>
