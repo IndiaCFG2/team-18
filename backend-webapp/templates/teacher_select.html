@@ -3,59 +3,83 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Link Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://321-foundation.org/">
+            <img src="https://321-foundation.org/img/logo.svg">
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="text-align:center">321 EDUCATION FOUNDATION</h1>
+            <p></p>
+        </div>
+    </div>
     <section class="section">
         <div class="container">
+        <div class="form-group">
         <form action = "" method="post" >
-            <label for="select">Select Grade</label>
-                <div class="select is-rounded">
-                    
-                    <select name="grade">
+            <div>
+            <label for="select"><b>Grade</b></label>
+                    <select class="form-control" name="grade" required>
+                            <option value="">Select</option>
                             <option value="grade1">Grade 1</option>
                             <option value="grade2">Grade 2</option>
+                            <option value="grade3">Grade 3</option>
                     </select>
                 </div>
-            </label>
-            <br><br><br>
-            <label for="select">Select Subject</label>
-                <div class="select is-rounded">
-                    
-                    <select name = 'subject'>
+            <br>
+            <div >
+            <label for="select"><b>Subject</b></label>
+                    <select class="form-control" name = 'subject' required>
+                            <option value="">Select</option>
                             <option value="eng">English</option>
+                            <option value="hindi">Hindi</option>
                             <option value="maths">Mathematics</option>
-                            <option value="evm">EVM</option>
-
                     </select>
                 </div>
-            </label>
-            <br><br><br>
-            <label for="select">Select Lesson</label>
-                <div class="select is-rounded">
-                    <select name = 'lesson'>
+            <br>
+            <div>
+            <label for="select"><b>Lesson</b></label>
+                    <select class="form-control " name = 'lesson' required>
+                        <option value="">Select</option>
                         <option value="l1">Lesson 1</option>
                         <option value="l2">Lesson 2</option>
-                        <option value="l3">Lesson 3</option>
                     </select>
-                </div>
+            </div>
             </label>
-            <br><br><br>
-            <label for="select">Select High Tech or Low Tech</label>
-                <div class="select is-rounded">
-                    
-                    <select name = 'tech'>
-                            <option value="ht">High Tech</option>
-                            <option value="lt">Low Tech</option>
-                    </select>
-                </div>
+            <br>
+            <div >
+                <label for="select"><b>High Tech or Low Tech</b></label>
+                        <select class="form-control" name = 'tech' required>
+                                <option value="">Select</option>
+                                <option value="ht">High Tech</option>
+                                <option value="lt">Low Tech</option>
+                        </select>
+            </div>
             </label>
-
+            <br><br>
+            <input class="btn btn-primary btn-block" value="Generate a Link" type="submit"></input>
             <br><br><br>
-            <button class="button is-primary" type="submit">Click here to generate a link</button>
-        </form>
+            </form>
+        </div>
         </div>
     </section>
+	<footer>
+        <p class="text-center" style="background-color:grey;color:white">&copy; 321 EDUCATION FOUNDATION</p>
+    </footer>
   </body>
 </html>
