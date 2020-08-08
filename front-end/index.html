@@ -9,6 +9,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+
+    <!-- CSS -->
+    <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
     <title>321</title>
 </head>
 
@@ -43,18 +50,79 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1>321</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi placeat repudiandae possimus ipsa, explicabo veritatis hic repellendus cum rem inventore quo libero excepturi quibusdam exercitationem quia perferendis! Ratione, sunt modi!
-            </p>
-            <p><a class="btn btn-primary btn-md" href="#" role="button">Learn more &raquo;</a></p>
+            <h3>Visualization</h3>
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <label>School</label>
+                            <select id='school' class="form-control select2" required>
+                                <option value="">Select</option>
+                                <option value="NIE">NIE</option>
+                                <option value="SJCE">SJCE</option> 
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label>Board</label>
+                            <select id='board' class="form-control select2" required>
+                                <option value="">Select</option> 
+                                <option value="1">CBSE</option> 
+                                <option value="2">KARNATAKA</option> 
+                                <option value="3">MAHARASHTRA</option> 
+                                <option value="4">TELANGANA</option> 
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label>Grade</label><br>
+                            <select name="grade" class="form-control select2" required>
+                                <option value="">Select</option>
+                                <option value="grade1">Grade 1</option>
+                                <option value="grade2">Grade 2</option>
+                                <option value="grade3">Grade 3</option>
+                            </select>  
+                        </div>
+
+                        <div class="col">
+                            <label>Subject</label><br>
+                            <select name="subject" class="form-control select2" required>
+                                <option value="">Select</option>
+                                <option value="eng">English</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="maths">Mathematics</option>
+                            </select>  
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row"> 
+                        <div class="col">
+                            <label>Start date</label><br>
+                            <input class="form-control" type="date" id="date1" required/>
+                        </div>
+
+                        <div class="col">
+                            <label>End Date</label><br>
+                            <input class="form-control" type="date" id="date2" required/>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <input type="button" class="btn btn-primary" onclick='chooseOptions()' value='Submit'/>
+                    <!-- <button type="button" class="btn btn-primary" onclick='chooseOptions()'>Submit</button> -->
+                </form>
+            </div>
+            <script>
+                $('.select2').select2();
+                
+            </script>
+            <div>
+                <canvas id="barchart" height="250" width="400">
+                </canvas>
+            </div>
         </div>
     </div>
 
-    <div class="chartContainer">
-        <canvas id="chart" height="250" width="400">
-        </canvas>
-    </div>
 
 
     <footer style="margin-top: 20px">
@@ -63,42 +131,15 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
     <script src="../firebaseKey.js"></script>
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: apiKey,
-            authDomain: "cfg-team18.firebaseapp.com",
-            databaseURL: "https://cfg-team18.firebaseio.com",
-            projectId: "cfg-team18",
-            storageBucket: "cfg-team18.appspot.com",
-            messagingSenderId: "816670917444",
-            appId: "1:816670917444:web:195831e13073b41536cd11"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        var firestore = firebase.firestore();
-
-        const docRef = firestore.doc("boardID/ID");
-        docRef.get().then(function(doc) {
-            console.log(doc.data());
-        })
-    </script>
-
-
+    <script src="site.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-    <script src="site.js"></script>
 </body>
 
 </html>
