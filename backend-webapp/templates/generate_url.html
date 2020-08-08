@@ -9,11 +9,21 @@
   <body>
     <section class="section">
         <div class="container">
-          <div class="columns is-centered">
-            <p><h5>Generated link for lesson</h5></p>
-            <br>
+          <div>
             <p style="color:blue;">Send this link to the students : {{url}}</p>
           </div>
+
+        <br>
+        <a href="https://api.whatsapp.com/send?text=www.google.com" data-action="share/whatsapp/share">Share via Whatsapp web</a>
+        <br>
+        <br>  
+        <div> 
+        <form action = "" method="post" >
+          <button class="button is-success is-rounded" type="submit">Share link via Whatsapp
+          </button>
+        </form>
+        </div>
+
         </div>
     </section>
   </body>
