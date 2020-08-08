@@ -13,39 +13,41 @@
         <div class="columns is-centered">
         <form action = "" method="post" >
             <h3 class="title is-3">321 Education Foundation</h3>
-            <h5 class="title is-5">Details for the link</h5>
+            <h5 class="title is-5">Fill the details</h5>
 
-            <label for="select">Select Board</label>
+            <label for="select">Board</label>
                 <div class="select is-rounded">
-                    
-                    <select name="grade">
+                    <select name="board" required="true">
+                            <option value="">Select</option>
                             <option value="cbse">CBSE</option>
-                            <option value="ta">TA</option>
-                            <option value="mh">MH</option>
-                            <option value="ka">KA</option>
+                            <option value="ta">Telangana State Board</option>
+                            <option value="mh">Maharashtra State Board</option>
+                            <option value="ka">Karnataka State Board</option>
                     </select>
                 </div>
             </label>
             <br><br><br>
 
-            <label for="select">Select Grade</label>
+            <label for="select">Grade</label>
                 <div class="select is-rounded">
                     
-                    <select name="grade">
+                    <select name="grade" required>
+                            <option value="">Select</option>
                             <option value="grade1">Grade 1</option>
                             <option value="grade2">Grade 2</option>
-                            <option value="grade2">Grade 3</option>
-                            <option value="grade2">Grade 4</option>
-                            <option value="grade2">Grade 5</option>
+                            <option value="grade3">Grade 3</option>
+                            <option value="grade4">Grade 4</option>
+                            <option value="grade5">Grade 5</option>
                             
                     </select>
                 </div>
             </label>
             <br><br><br>
-            <label for="select">Select Subject</label>
+            <label for="select">Subject</label>
                 <div class="select is-rounded">
                     
-                    <select name = 'subject'>
+                    <select name = 'subject' required>
+                            <option value="">Select</option>
                             <option value="eng">English</option>
                             <option value="hindi">Hindi</option>
                             <option value="maths">Mathematics</option>
@@ -55,9 +57,10 @@
                 </div>
             </label>
             <br><br><br>
-            <label for="select">Select Lesson</label>
+            <label for="select">Lesson</label>
                 <div class="select is-rounded">
-                    <select name = 'lesson'>
+                    <select name = 'lesson' required>
+                        <option value="">Select</option>
                         <option value="l1">Lesson 1</option>
                         <option value="l2">Lesson 2</option>
                         <option value="l3">Lesson 3</option>
@@ -65,10 +68,11 @@
                 </div>
             </label>
             <br><br><br>
-            <label for="select">Select High Tech or Low Tech</label>
+            <label for="select">High Tech or Low Tech</label>
                 <div class="select is-rounded">
                     
-                    <select name = 'tech'>
+                    <select name = 'tech' required>
+                            <option value="">Select</option>
                             <option value="ht">High Tech</option>
                             <option value="lt">Low Tech</option>
                     </select>
@@ -76,7 +80,7 @@
             </label>
 
             <br><br><br>
-            <button class="button is-info is-rounded" type="submit">Click here to generate a link</button>
+            <input value="Click here to generate a link" type="submit"></input>
         </form>
         </div>
         </div>
