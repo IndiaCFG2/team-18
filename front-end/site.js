@@ -206,23 +206,12 @@ async function getWrapper(inst, board, grade, sub, sdate, edate) {
     var subject = sub;
     splLinkAndCount = await getDocumentsUsingParametes(instId, brdData, grade, subject, sdate, edate);
     console.log(splLinkAndCount);
+
     for (key in splLinkAndCount) {
         l = key.split("_");
         lessonName = l[4];
         techName = l[5];
         var l2 = [0, 0];
-        var f = false;
-        for (key in out) {
-            console.log(out[key].key)
-            if (out[key].key == lessonName) {
-                l2[0] = out[key][0];
-                l2[1] = out[key][1];
-                f = true;
-            }
-        }
-        if (f == false) {
-            l2 = [0, 0];
-        }
         if (techName == "ht") {
             l2[0] = splLinkAndCount[key];
         } else {
@@ -231,7 +220,6 @@ async function getWrapper(inst, board, grade, sub, sdate, edate) {
         var temp = Object({ lessonName: l2 });
         out.push(temp);
     }
-
     console.log(out);
     return out;
 };
