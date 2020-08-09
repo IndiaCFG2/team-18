@@ -29,10 +29,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="#">Log In</a>
+                    <a class="nav-link text-center" href="login.html">Log In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href={{ url_for( "signup") }}>Sign up</a>
+                    <a class="nav-link text-center" href="signup.html">Sign up</a>
                 </li>
             </ul>
             <!-- <ul class="navbar-nav ml-auto">
@@ -81,7 +81,7 @@
                                 <option value="grade1">Grade 1</option>
                                 <option value="grade2">Grade 2</option>
                                 <option value="grade3">Grade 3</option>
-                            </select>  
+                            </select>
                         </div>
 
                         <div class="col">
@@ -91,11 +91,11 @@
                                 <option value="eng">English</option>
                                 <option value="hindi">Hindi</option>
                                 <option value="maths">Mathematics</option>
-                            </select>  
+                            </select>
                         </div>
                     </div>
                     <br>
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col">
                             <label>Start date</label><br>
                             <input class="form-control" type="date" id="date1" required/>
@@ -106,15 +106,14 @@
                             <input class="form-control" type="date" id="date2" required/>
                         </div>
                     </div>
-                    
+
                     <br>
-                    <input type="button" class="btn btn-primary" onclick='chooseOptions()' value='Submit'/>
+                    <input type="button" class="btn btn-primary" onclick='chooseOptions()' value='Submit' />
                     <!-- <button type="button" class="btn btn-primary" onclick='chooseOptions()'>Submit</button> -->
                 </form>
             </div>
             <script>
                 $('.select2').select2();
-                
             </script>
             <div>
                 <canvas id="barchart" height="250" width="400">

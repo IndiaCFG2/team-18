@@ -132,18 +132,20 @@ async function getDocumentsUsingParametes(instId, brdData, grade, subject, fromD
 
 
 
-function chooseOptions(graph_data) {
+async function chooseOptions() {
 
-    var school = $('#school option:selected').text();
-    var board = $('#board option:selected').text();
-    var grade = $('#grade option:selected').text();
-    var subject = $('#subject option:selected').text();
-    var date1 = document.getElementById("date1").value
-    var date2 = document.getElementById("date2").value
-        //var schoolid = $('#school').val();
+    school = $('#school option:selected').text();
+    board = $('#board option:selected').text();
+    grade = $('#grade option:selected').text();
+    subject = $('#subject option:selected').text();
+    date1 = document.getElementById("date1").value
+    date2 = document.getElementById("date2").value
+
+    //var schoolid = $('#school').val();
     console.log(school, board, grade, subject, date2)
 
     //fetch data after filtering
+    graph_data = await getWrapper(school, board, grade, subject, date1, date2);
 
     var ls = []
     var highTech = []
@@ -194,31 +196,30 @@ function chooseOptions(graph_data) {
 
 var splLinkAndCount;
 var out = [];
-async function getWrapper() {
-    var instId = await getIdByNameOfInstitution("NIE");
+async function getWrapper(inst, board, grade, sub, sdate, edate) {
+    var instId = await getIdByNameOfInstitution(inst);
     console.log(instId);
-    var brdData = await getIdByNameOfBoard("CBSE");
+    var brdData = await getIdByNameOfBoard(board);
     var out = [];
     console.log(brdData);
-    var grade = "grade2";
-    var subject = "eng";
-    splLinkAndCount = await getDocumentsUsingParametes(instId, brdData, grade, subject, "1999-08-10", "2030-10-30");
+    var grade = grade;
+    var subject = sub;
+    splLinkAndCount = await getDocumentsUsingParametes(instId, brdData, grade, subject, sdate, edate);
     console.log(splLinkAndCount);
+
     for (key in splLinkAndCount) {
         l = key.split("_");
         lessonName = l[4];
         techName = l[5];
         var l2 = [0, 0];
         if (techName == "ht") {
-            l2[1] = splLinkAndCount[key];
-        } else {
             l2[0] = splLinkAndCount[key];
+        } else {
+            l2[1] = splLinkAndCount[key];
         }
         var temp = Object({ lessonName: l2 });
         out.push(temp);
     }
-
     console.log(out);
-    chooseOptions(out);
-}
-getWrapper();
+    return out;
+};
